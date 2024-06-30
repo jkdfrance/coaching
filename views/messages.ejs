@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie</title>
+</head>
+<body>
+    <h1>Messagerie</h1>
+    <form action="/messages" method="post">
+        <label for="recipient">Destinataire:</label>
+        <input type="text" id="recipient" name="recipient" required>
+        <br>
+        <label for="content">Message:</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+    <h2>Messages Reçus</h2>
+    <ul>
+        <% messages.filter(msg => msg.recipient === user).forEach(msg => { %>
+            <li><strong><%= msg.sender %></strong>: <%= msg.content %> (envoyé le <%= msg.timestamp %>)</li>
+        <% }); %>
+    </ul>
+    <a href="/auth/logout">Déconnexion</a>
+</body>
+</html>

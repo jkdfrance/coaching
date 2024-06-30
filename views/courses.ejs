@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Cours</title>
+</head>
+<body>
+    <h1>Liste des Cours</h1>
+    <ul>
+        <% courses.forEach((course, index) => { %>
+            <li><a href="/courses/<%= index %>"><%= course.title %></a></li>
+        <% }) %>
+    </ul>
+    <a href="/courses/new">Créer un nouveau cours</a>
+    <a href="/auth/logout">Déconnexion</a>
+</body>
+</html>
